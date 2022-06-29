@@ -1,0 +1,24 @@
+<component name="libraryTable">
+  <library name="servlet-api">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../tomacat/apache-tomcat-9.0.52/lib/servlet-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../tomacat/apache-tomcat-9.0.52/lib/tomcat-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/ant-1.9.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/ant-launcher-1.9.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/asm-5.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/cglib-3.2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-dbutils-1.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/easyDao.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/log4j-1.2.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector-java-5.1.45-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/jackson-annotations-2.13.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/jackson-core-2.13.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/jackson-databind-2.13.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/jstl-1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/easyDao.jar!/" />
+    </SOURCES>
+  </library>
+</component>

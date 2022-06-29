@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- Bootstrap 的 CSS 文件 -->
+		   <!-- <link href="js/dist/css/bootstrap.min.css" rel="stylesheet" > --> 
+		
+		<!-- <link href="js/dist/css/bootstrap-reboot.min.css" rel="stylesheet"/> -->
+		    <!-- JavaScript 文件是可选的。从以下两种建议中选择一个即可！ -->
+		
+		<script src="js/jquery-3.6.0.min.js"></script>
+		 
+		  
+		      <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
+		      
+		      <link rel="stylesheet" type="text/css" href="stylesheets/theme.css">
+		      <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
+		  
+    <style type="text/css">
+        #line-chart {
+            height:300px;
+            width:800px;
+            margin: 0px auto;
+            margin-top: 1em;
+        }
+        .brand { font-family: georgia, serif; }
+        .brand .first {
+            color: #ccc;
+            font-style: italic;
+        }
+        .brand .second {
+            color: #fff;
+            font-weight: bold;
+        }
+    </style>
+	</head>
+	<body>
+		
+<div class="navbar">
+        <div class="navbar-inner">
+                <ul class="nav pull-right">
+                    
+                    <li><a href="#" class="hidden-phone visible-tablet visible-desktop" role="button">Settings</a></li>
+                    <li id="fat-menu" class="dropdown">
+                        <a href="#" role="button" class="dropdown-toggle">
+                            <i class="icon-user"></i> 李大成
+                            <i class="icon-caret-down"></i>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a tabindex="-1" href="#">我的帐号</a></li>
+                            <li class="divider"></li>
+                            <li><a tabindex="-1" class="visible-phone" href="#">设置</a></li>
+                            <li class="divider visible-phone"></li>
+                            <li><a tabindex="-1" href="login.html">退出</a></li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+                <a class="brand" href="index.html"><span class="first"></span> <span class="second">图书商城</span></a>
+        </div>
+    </div>
+	
+	
+	<script src="lib/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript">
+	    $("[rel=tooltip]").tooltip();
+	    $(function() {
+	        $('.demo-cancel-click').click(function(){return false;});
+	    });
+	</script>
+	</body>
+</html>
