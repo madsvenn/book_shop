@@ -1,11 +1,13 @@
 package Service;
 
 import Dao.BookDao;
+import com.oracle.jdbc.util.Dao;
 import com.oracle.jdbc.util.Transactional;
 import Entity.Book;
 
 import javax.servlet.jsp.PageContext;
 import java.util.List;
+import java.util.Map;
 
 public class BookService {
 
@@ -33,5 +35,10 @@ public class BookService {
     @Transactional
     public Book select_one_book(Integer bookId){
         return dao.get_one_book(bookId);
+    }
+
+    @Transactional
+    public List<Map<String,Object>>selectRepositories(){
+        return dao.selectRepositories();
     }
 }

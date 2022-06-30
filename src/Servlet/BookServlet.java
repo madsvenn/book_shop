@@ -10,6 +10,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.util.List;
 import java.io.IOException;
+import java.util.Map;
 
 @WebServlet(name = "BookServlet", urlPatterns = "/admin/book.do")
 public class BookServlet extends BaseServlet {
@@ -98,5 +99,13 @@ public class BookServlet extends BaseServlet {
         }
         bookService.update(book);
         response.sendRedirect("book.do?method=list");
+    }
+
+    public void listRepositories(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        List<Map<String,Object>> list = bookService.selectRepositories();
+
+        request.setAttribute("list", list);
+        request.getRequestDispatcher("bookRepositoryList.jsp").forward(request, response);
     }
 }

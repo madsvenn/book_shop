@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -67,51 +70,18 @@
 					</tr>
 				</thead>
 				<tbody>
-
+				<c:forEach items="${list}" var="r" varStatus="state">
 					<tr>
-						<td>1</td>
-						<td>数学之美</td>
-						<td>入库</td>
-						<td>4</td>
-						<td>90</td>
-						<td>2022-4-5 17:09:23</td>
-						<td>james</td>
+						<td>${state.count}</td>
+						<td>${r.bookName}</td>
+						<td>${r.kind}</td>
+						<td>${r.count}</td>
+						<td>${r.balance}</td>
+						<td><fmt:formatDate value="${r.executeTime}" pattern="YYYY-MMM-dd HH:mm:ss"></fmt:formatDate></td>
+						<td>${r.operator}</td>
 
 					</tr>
-
-					<tr>
-						<td>2</td>
-						<td>平凡的世界</td>
-						<td>入库</td>
-						<td>40</td>
-						<td>190</td>
-						<td>2022-4-5 17:09:23</td>
-						<td>admin</td>
-
-					</tr>
-
-					<tr>
-						<td>3</td>
-						<td>活着</td>
-						<td>入库</td>
-						<td>4</td>
-						<td>90</td>
-						<td>2022-4-15 17:09:23</td>
-						<td>james</td>
-
-					</tr>
-
-					<tr>
-						<td>4</td>
-						<td>思考快与慢</td>
-						<td>出库</td>
-						<td>4</td>
-						<td>30</td>
-						<td>2022-4-5 17:19:23</td>
-						<td>james</td>
-
-					</tr>
-
+				</c:forEach>
 				</tbody>
 			</table>
 
