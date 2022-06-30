@@ -108,4 +108,11 @@ public class BookServlet extends BaseServlet {
         request.setAttribute("list", list);
         request.getRequestDispatcher("bookRepositoryList.jsp").forward(request, response);
     }
+
+    public void viewRepositories(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        List<Book> list = bookService.getBooks();
+        request.setAttribute("list",list);
+        request.getRequestDispatcher("bookRepository.jsp").forward(request,response);
+    }
 }

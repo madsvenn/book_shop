@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -36,18 +37,20 @@
 
 				<div class="row">
 					<div class="col-4">
-						<label for="inputEmail4" class="form-label">图书名称</label>
-						
-						<input type="text" name="book" value=""  class="form-control" list="bookList">
-						
-						<datalist id="bookList">
-							<option>数学之美</option>
-							<option>兄弟</option>
-							<option>活着</option>
-							<option>自卑与超越</option>
-							<option>自卑与超越2</option>
-							<option>自卑的我</option>
-						</datalist>
+						<label class="form-label">图书名称</label>
+						<select name="bookId" class="form-select">
+							<c:forEach items="${list}" var="b">
+								<option value="${b.bookId}">${b.bookName}</option>
+							</c:forEach>
+						</select>
+<%--						<datalist id="bookList">--%>
+<%--							<option>数学之美</option>--%>
+<%--							<option>兄弟</option>--%>
+<%--							<option>活着</option>--%>
+<%--							<option>自卑与超越</option>--%>
+<%--							<option>自卑与超越2</option>--%>
+<%--							<option>自卑的我</option>--%>
+<%--						</datalist>--%>
 					<!-- 	
 						<select id="inputState" name="bookId" class="form-select">
 						
@@ -56,14 +59,14 @@
 
 					<div class="col-4">
 						<label for="inputAddress" class="form-label">当前库存</label>
-						<input type="text" name="balance" value="90" disabled="disabled" class="form-control" id="inputAddress">
+						<input type="text" name="balance" value="90" disabled="disabled" class="form-control">
 					</div>
 
 				</div>
 
 				<div class="row">
 					<div class="col-4">
-						<label for="inputPassword4" class="form-label">操作类型</label>
+						<label  class="form-label">操作类型</label>
 
 						<select id="inputState" name="kind" class="form-select">
 							<option value="in" selected>入库</option>
@@ -89,7 +92,7 @@
 
 
 				<div class="col-12">
-					<button type="submit" class="btn btn-primary">添加图书</button>
+					<button type="submit" class="btn btn-primary">确认</button>
 				</div>
 			</form>
 		</div>

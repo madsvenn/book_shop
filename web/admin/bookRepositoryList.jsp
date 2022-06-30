@@ -31,7 +31,7 @@
 		<div class="container">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 				<div class="container-fluid">
-					<button class="btn btn-success" onclick="location='bookRepository.html'"><i class="icon-plus"></i>
+					<button class="btn btn-success" onclick="location='book.do?method=viewRepositories'"><i class="icon-plus"></i>
 						出入库</button>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 						data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
