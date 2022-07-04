@@ -1,9 +1,12 @@
 package Servlet;
 
+import Entity.Admin;
 import Entity.Book;
+import Entity.Repository;
 import Service.BookService;
 import Service.CategoryService;
 import com.oracle.jdbc.util.ServiceFactory;
+import com.oracle.jdbc.util.Transactional;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -114,5 +117,22 @@ public class BookServlet extends BaseServlet {
         List<Book> list = bookService.getBooks();
         request.setAttribute("list",list);
         request.getRequestDispatcher("bookRepository.jsp").forward(request,response);
+    }
+
+    public void repositories(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        Repository repository = new Repository();
+
+        repository.setBookId(Integer.valueOf(request.getParameter("bookId")));
+        repository.setCount(Integer.valueOf(request.getParameter("count")));
+        repository.setKind(request.getParameter("kind"));
+
+        Admin admin =(Admin) request.getSession().getAttribute("admin");
+        repository.setOperator(admin.getAdminName());
+
+        bookService.repository(repository);
+
+        response.sendRedirect("book.do?method=listRepositories");
+
     }
 }

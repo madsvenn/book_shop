@@ -75,7 +75,7 @@
         </thead>
         <tbody>
 
-        <c:forEach items="${list}" var="b" varStatus="state">
+        <c:forEach items="${list}" begin="0" end="9" var="b" varStatus="state">
         <tr>
             <td>${state.count}</td>
             <td>${b.bookName}</td>

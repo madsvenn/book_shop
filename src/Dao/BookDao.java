@@ -1,5 +1,6 @@
 package Dao;
 
+import Entity.Repository;
 import com.oracle.jdbc.util.Dao;
 import Entity.Book;
 
@@ -42,5 +43,20 @@ public class BookDao {
                 "\t\t'出库'\n" +
                 "END kind,count,balance,execute_time,operator from tb_repository r INNER JOIN tb_book b ON r.book_id=b.book_id;\n";
         return Dao.queryToMap(sql,new Object[]{});
+    }
+
+    /**
+     * 更新库存
+     * @param bookId
+     * @param amount 增加的库存数，如果是负数代表减库存
+     */
+    public void updateBookAmount(Integer bookId, Integer amount){
+        String sql = "update tb_book set amount = amount +? where book_id=?";
+        Dao.executeSql(sql,amount,bookId);
+    }
+
+    public void insertRepository(Repository repository){
+        String sql = "insert into tb_repository values(null,?,?,?,?,now(),?)";
+        Dao.executeSql(sql,repository.getBookId(),repository.getKind(),repository.getCount(),repository.getBalance(),repository.getOperator());
     }
 }

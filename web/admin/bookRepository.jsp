@@ -33,7 +33,7 @@
 
 
 		<div class="container container-fluid">
-			<form action="bookRepositoryList5.html">
+			<form action="book.do?method=repositories" method="post">
 
 				<div class="row">
 					<div class="col-4">

@@ -1,11 +1,10 @@
 package Service;
 
 import Dao.BookDao;
-import com.oracle.jdbc.util.Dao;
+import Entity.Repository;
 import com.oracle.jdbc.util.Transactional;
 import Entity.Book;
 
-import javax.servlet.jsp.PageContext;
 import java.util.List;
 import java.util.Map;
 
@@ -40,5 +39,35 @@ public class BookService {
     @Transactional
     public List<Map<String,Object>>selectRepositories(){
         return dao.selectRepositories();
+    }
+
+    /**
+     * 出入库
+     * @param repository
+     */
+    @Transactional
+    public void repository(Repository repository){
+        //1.update repository
+
+        if("out".equals(repository.getKind())){
+            repository.setCount(-repository.getCount());
+        }
+
+        //2
+        dao.updateBookAmount(repository.getBookId(),repository.getCount());
+
+        //获得库存数
+        Book book = dao.get_one_book(repository.getBookId());
+        repository.setBalance(book.getAmount());
+        //3判断库存是否小于0
+        if("out".equals(repository.getKind())){
+            if(book.getAmount()<0){
+                throw new RuntimeException("库存不足");
+            }
+        }
+
+        //记录流水
+        dao.insertRepository(repository);
+
     }
 }
