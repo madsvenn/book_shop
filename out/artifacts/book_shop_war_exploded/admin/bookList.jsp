@@ -100,23 +100,59 @@
 
         </tbody>
     </table>
-
+    <form id="subPage_form" method="post" action="${pageInfo.url}">
+        <input type="hidden" name="method" value="${pageInfo.method}">
+        <input id="page_currentPage" type="hidden" name="currentPage" value="">
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-lg-end">
             <li class="page-item disabled">
                 <a class="page-link">总记录数：${pageInfo.recordCount}</a>
             </li>
-            <li class="page-item disabled">
-                <a class="page-link">Previous</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#" id="page1">1</a></li>
-            <li class="page-item"><a class="page-link" href="#" id="page2">2</a></li>
-            <li class="page-item"><a class="page-link" href="#" id="page3">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
+
+            <c:choose>
+                <c:when test="${1==pageInfo.currentPage}">
+                    <li class="page-item disabled">
+                        <a class="page-link">上一页</a>
+                    </li>
+                </c:when>
+                <c:otherwise>
+                    <li class="page-item">
+                        <a class="page-link">上一页</a>
+                    </li>
+                </c:otherwise>
+            </c:choose>
+            <c:forEach begin="1" end="${pageInfo.pageCount}" var="pageNum">
+                <c:choose>
+                    <c:when test="${pageNum==pageInfo.currentPage}">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="javascript:void(0)" id="page2">${pageNum}</a>
+                        </li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0)" id="page1">${pageNum}</a></li>
+                    </c:otherwise>
+                </c:choose>
+
+            </c:forEach>
+
+<%--            <li class="page-item"><a class="page-link" href="javascript:void(0)" id="page1">1</a></li>--%>
+<%--            <li class="page-item"><a class="page-link" href="javascript:void(0)" id="page2">2</a></li>--%>
+<%--            <li class="page-item"><a class="page-link" href="javascript:void(0)" id="page3">3</a></li>--%>
+            <c:choose>
+                <c:when test="${pageInfo.pageCount==pageInfo.currentPage}">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="javascript:void(0)">下一页</a>
+                    </li>
+                </c:when>
+                <c:otherwise>
+                    <li class="page-item">
+                        <a class="page-link" href="javascript:void(0)">下一页</a>
+                    </li>
+                </c:otherwise>
+            </c:choose>
         </ul>
     </nav>
+    </form>
 </div>
 
 

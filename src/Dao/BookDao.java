@@ -73,6 +73,7 @@ public class BookDao {
     public void selectForPage(PageInfo pageInfo){
         String sql = "select * from tb_book order by book_Id limit ?,?";
         List list = Dao.query(sql,Book.class,(pageInfo.getCurrentPage()-1)*pageInfo.getRecordSize(),pageInfo.getRecordSize());
+        pageInfo.setPageCount(pageInfo.getPageCount());
         System.out.println(list);
         pageInfo.setList(list);
     }

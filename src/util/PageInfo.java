@@ -12,9 +12,15 @@ public class PageInfo {
 
     int recordCount; //总记录数
 
+    int pageCount;
+
     String url;
 
     String method;
+
+    public void setPageCount(int pageCount) {
+        this.pageCount = pageCount;
+    }
 
     public List getList() {
         return list;
