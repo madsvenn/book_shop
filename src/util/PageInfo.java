@@ -64,6 +64,7 @@ public class PageInfo {
         this.method = method;
     }
 
+    //有多少页
     public int getPageCount(){
 
         return this.recordCount%this.recordSize==0?this.recordCount/this.recordSize:this.recordCount/this.recordSize+1;

@@ -3,6 +3,7 @@ package Dao;
 import Entity.Repository;
 import com.oracle.jdbc.util.Dao;
 import Entity.Book;
+import util.PageInfo;
 
 import java.util.List;
 import java.util.Map;
@@ -58,5 +59,21 @@ public class BookDao {
     public void insertRepository(Repository repository){
         String sql = "insert into tb_repository values(null,?,?,?,?,now(),?)";
         Dao.executeSql(sql,repository.getBookId(),repository.getKind(),repository.getCount(),repository.getBalance(),repository.getOperator());
+    }
+
+    //查记录数
+    public void selectCountForPage(PageInfo pageInfo){
+        String sql = "select count(*) from tb_book";
+        //
+        int count =((Long)Dao.queryOne(sql,new Object[]{})[0]).intValue();
+        pageInfo.setRecordCount(count);
+    }
+
+    //查询数据
+    public void selectForPage(PageInfo pageInfo){
+        String sql = "select * from tb_book order by book_Id limit ?,?";
+        List list = Dao.query(sql,Book.class,(pageInfo.getCurrentPage()-1)*pageInfo.getRecordSize(),pageInfo.getRecordSize());
+        System.out.println(list);
+        pageInfo.setList(list);
     }
 }

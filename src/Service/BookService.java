@@ -4,6 +4,7 @@ import Dao.BookDao;
 import Entity.Repository;
 import com.oracle.jdbc.util.Transactional;
 import Entity.Book;
+import util.PageInfo;
 
 import java.util.List;
 import java.util.Map;
@@ -69,5 +70,10 @@ public class BookService {
         //记录流水
         dao.insertRepository(repository);
 
+    }
+
+    public void queryForPage(PageInfo pageInfo){
+        dao.selectCountForPage(pageInfo);
+        dao.selectForPage(pageInfo);
     }
 }

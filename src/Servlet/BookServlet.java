@@ -7,6 +7,7 @@ import Service.BookService;
 import Service.CategoryService;
 import com.oracle.jdbc.util.ServiceFactory;
 import com.oracle.jdbc.util.Transactional;
+import util.PageInfo;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -23,9 +24,13 @@ public class BookServlet extends BaseServlet {
 
     public void list(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        List<Book> list = bookService.getBooks();
+//        List<Book> list = bookService.getBooks();
+//
+//        request.setAttribute("list", list);
+//        request.getRequestDispatcher("bookList.jsp").forward(request, response);
 
-        request.setAttribute("list", list);
+        PageInfo pageInfo =new PageInfo(request);
+        bookService.queryForPage(pageInfo);
         request.getRequestDispatcher("bookList.jsp").forward(request, response);
     }
 

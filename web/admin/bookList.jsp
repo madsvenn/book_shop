@@ -21,13 +21,7 @@
     <link rel="stylesheet" href="js/dist/font-awesome/css/font-awesome.css">
     <script src="js/dist/js/bootstrap.js"></script>
     <script src="js/jquery-3.6.0.min.js" type="text/javascript"></script>
-    <script>
-        $(function (){
-            $("#page1").onclick(function (){
-                <% int a = 1;%>
-            });
-        });
-    </script>
+
 </head>
 
 <body class="">
@@ -82,9 +76,9 @@
         </thead>
         <tbody>
 
-        <c:forEach items="${list}" begin="0" end="9" var="b" varStatus="state">
+        <c:forEach items="${pageInfo.list}" var="b" varStatus="state">
         <tr>
-            <td>${state.count}</td>
+            <td>${state.count+(pageInfo.currentPage-1)*pageInfo.recordSize}</td>
             <td>${b.bookName}</td>
             <td>${b.author}</td>
             <td>${b.publisher}</td>
@@ -109,6 +103,9 @@
 
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-lg-end">
+            <li class="page-item disabled">
+                <a class="page-link">总记录数：${pageInfo.recordCount}</a>
+            </li>
             <li class="page-item disabled">
                 <a class="page-link">Previous</a>
             </li>
