@@ -21,6 +21,13 @@
     <link rel="stylesheet" href="js/dist/font-awesome/css/font-awesome.css">
     <script src="js/dist/js/bootstrap.js"></script>
     <script src="js/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script>
+        $(function (){
+            $("#page1").onclick(function (){
+                <% int a = 1;%>
+            });
+        });
+    </script>
 </head>
 
 <body class="">
@@ -105,9 +112,9 @@
             <li class="page-item disabled">
                 <a class="page-link">Previous</a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#" id="page1">1</a></li>
+            <li class="page-item"><a class="page-link" href="#" id="page2">2</a></li>
+            <li class="page-item"><a class="page-link" href="#" id="page3">3</a></li>
             <li class="page-item">
                 <a class="page-link" href="#">Next</a>
             </li>
